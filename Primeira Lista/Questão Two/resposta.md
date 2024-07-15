@@ -7,8 +7,60 @@ gdb main
 b operacaoMatematica
 run
 ```
-# b) Descubra através da depuração, qual a maior profundidade de (frames) esse código alcan¸ca.
-- 
+# b) Descubra através da depuração, qual a maior profundidade de (frames) esse código alcança.
+- A profundidade de frames vai depender do num1 e do num2, ou seja de seus valores escolhidos pelo usuário.
+
+### Abaixo está os Comandos Usados.
+``` 
+(gdb) b operacaoMatematica
+Breakpoint 1 at 0x40131e: file .\t.c, line 7.
+(gdb) run                 
+ Digite o primeiro numero : 10200
+ Digite o segundo numero : 300
+
+Breakpoint 1, operacaoMatematica (a=10200, b=300) at .\t.c:7      
+7        while ( b != 0) {
+(gdb) where               
+#0  operacaoMatematica (a=10200, b=300) at .\t.c:7
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+8        r = a % b ;
+(gdb) where
+#0  operacaoMatematica (a=10200, b=300) at .\t.c:8
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+9        a = b ;
+(gdb) where
+#0  operacaoMatematica (a=10200, b=300) at .\t.c:9
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+10       b = r ;
+(gdb) where
+#0  operacaoMatematica (a=300, b=300) at .\t.c:10
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+7        while ( b != 0) {
+(gdb) where
+#0  operacaoMatematica (a=300, b=0) at .\t.c:7
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+13       return a ;
+(gdb) where
+#0  operacaoMatematica (a=300, b=0) at .\t.c:13
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+14       }
+(gdb) where
+#0  operacaoMatematica (a=300, b=0) at .\t.c:14
+#1  0x004013a3 in main () at .\t.c:25
+(gdb) next 
+main () at .\t.c:27
+27       printf ("A operacao de %d e %d e: %d\n",num1 ,num2 ,res );
+(gdb) next
+A operacao de 10200 e 300 e: 300
+29       return 0;
+```
+
 
 # c) Descubra o que ocorre quando um parâmetro é 0.
 - Quando o parâmetro é zero, da varíavel "A", o valor 0 de "A" adquire o Valor da varíavel "B" que é maior que zero.
@@ -144,3 +196,5 @@ A operacao de 145 e 145 e: 145
 29       return 0;
 (gdb)
 ```
+
+# Questão 3: 
