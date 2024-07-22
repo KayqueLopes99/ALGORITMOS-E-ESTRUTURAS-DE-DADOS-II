@@ -3,6 +3,25 @@
 - Resultado fibonacci(5) é requisitado 89 Vezes.
 
 ### Abaixo está os Comandos Usados.
+```
+(gdb) b fibonacci if n == 5
+Breakpoint 1 at 0x40131f: file .\pri.c, line 3.
+(gdb) r
+(gdb) info breakpoints
+(gdb) ignore 1 10000
+Will ignore next 10000 crossings of breakpoint 1.
+(gdb) r
+(gdb) info breakpoints
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0040131f in fibonacci at .\pri.c:3
+        stop only if n == 5
+        breakpoint already hit 89 times
+        ignore next 9911 hits
+```
+
+#### Ou
+
+```
 PS C:\Users\kaiqu\OneDrive\Imagens\ED2> gdb main
 (gdb) b fibonacci 
 Breakpoint 1 at 0x40131f: file .\pri.c, line 3.
@@ -26,25 +45,27 @@ Start it from the beginning? (y or n) y
 The program is not being run.
 (gdb) print $c
 $1 = 89
+```
 
 # Questão 1 (B):
 ## b) Descubra através da depuração, qual a maior quantidade de n´ıveis (frames) esse código alcança.
 - 16 frames é a maior quantidade.
 
 ### Abaixo está os Comandos Usados.
+```
 gdb main
 (gdb) b fibonacci 
 (gdb) run
 where
 continue até o ultimo número que é o zero. 
 15 frames + 0 frame = 16 frames. 
-Questão 1 (C):
-
+```
 
 # Questão 1 (C):
 ## c) Depure o código até o momento que o primeiro fibonacci(14) é calculado e o executável ira começar a calcular o fibonacci(13).
 - Realizada com sucesso. 
 ### Abaixo está os Comandos Usados.
+```
  gdb main
 (gdb) b fibonacci
 (gdb) run
@@ -73,3 +94,4 @@ $1 = 14
 Breakpoint 1, fibonacci (n=13) at .\pri.c:3
 3        int fibonacci (int n ) {
 (gdb) quit
+```

@@ -197,4 +197,3 @@ A operacao de 145 e 145 e: 145
 (gdb)
 ```
 
-# Questão 3: 
