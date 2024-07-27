@@ -22,11 +22,10 @@ struct Node
 struct Node *criarNode(char *nome, int mat, int turma, float nota);
 int comparar(struct Info a, struct Info b);
 
-
 int main(void)
 {
     struct Node *raiz = criarNode("Kayque", 3, 1, rand() % 10);
-    //Antes:  struct Node *nodeSa = criarNode("Samuel", 4, 1, rand() % 10);
+    // Antes:  struct Node *nodeSa = criarNode("Samuel", 4, 1, rand() % 10);
 
     struct Info Info_satur;
     strcpy(Info_satur.nome, "Samuel");
@@ -49,7 +48,6 @@ struct Node *criarNode(char *nome, int mat, int turma, float nota)
     raiz->esq = NULL;
     raiz->dir = NULL;
     return raiz;
-    
 }
 
 struct Node *criarNode(char *nome, int mat, int turma, float nota)
@@ -60,19 +58,25 @@ struct Node *criarNode(char *nome, int mat, int turma, float nota)
     raiz->info.mat = mat;
     raiz->info.turma = turma;
     raiz->info.nota = nota;
-    
 }
 
-int comparar(struct Info a, struct Info b){
+int comparar(struct Info a, struct Info b)
+{
     return strcmp(a.nome, b.nome);
 }
 
-struct Node *inserir(struct Node *raiz, struct Info info) {
-    if (raiz == NULL) {
+struct Node *inserir(struct Node *raiz, struct Info info)
+{
+    if (raiz == NULL)
+    {
         raiz = criarNode(info.nome, info.mat, info.turma, info.nota);
-    } else if (comparar(raiz->info, info) > 0) {
+    }
+    else if (comparar(raiz->info, info) > 0)
+    {
         raiz->esq = inserir(raiz->esq, info);
-    } else if (comparar(raiz->info, info) < 0) {
+    }
+    else if (comparar(raiz->info, info) < 0)
+    {
         raiz->dir = inserir(raiz->dir, info);
     }
     return raiz;
