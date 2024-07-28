@@ -190,3 +190,10 @@ void Andar_na_Arvore_INORDEM(struct Node *raiz) {
 
 
 // Precisa Fazer Uma função: Pos-Ordem
+
+// Respostas: 
+// parada no pai do elemento procurado (gdb) b percorrer_arvores_preordem if raiz != 0 && ((raiz->dir && raiz->dir->info.mat == 17 && raiz->dir->info.turma == 3) || (raiz->esq && raiz->esq->info.mat == 17 && raiz->esq->info.turma == 3))
+// Ver o PAI: P *raiz
+// elemento procurado (gdb) p raiz->dir->info.nome    
+// filho direito do elemento procurado (gdb) p raiz->dir->dir->info.nome 
+// filho esquerdo do elemento procurado (gdb) p raiz->dir->esq->info.nome 
