@@ -34,12 +34,13 @@ int comparar(struct Info a, struct Info b);
 struct Node *inserir(struct Node *raiz, struct Info info);
 
 // Função para percorrer a árvore.
-void Andar_na_Arvore_PREORDEM(struct Node *raiz, int profundidade);
-void Andar_na_Arvore_INORDEM(struct Node *raiz);
+void andar_na_arvore(struct Node *raiz, int profundidade);
+
 int main()
 {
-    srand(time(NULL)); 
+    srand(time(NULL)); // Inicializa o gerador de números aleatórios
 
+    // Abre o arquivo "Dados.txt" para leitura.
     FILE *arquivo = fopen("Dados.txt", "rt");
     if (arquivo == NULL)
     {
@@ -57,7 +58,7 @@ int main()
 
     while (fscanf(arquivo, "%d - %[^-] - %d\n", &mat, nome, &turma) == 3)
     {
-        // Cria uma estrutura Info com os dados lidos, incluindo uma nota gerada aleatoriamente.
+        // Cria uma estrutura Info com os dados lidos, incluindo uma nota gerada aleatoriamente
         informacao[quantidade] = criarInfo(mat, nome, turma, rand() % 10);
         quantidade++;
         if (quantidade >= 100)
@@ -70,19 +71,11 @@ int main()
 
     // Declara um ponteiro para o nó raiz da árvore, inicialmente nulo.
     struct Node *raiz = 0;
-
-    // Percorrer as Informções lidas.
     for (index = 0; index < quantidade; index++)
     {
-        // Insere cada informação na árvore binária de busca usando a função inserir.
         raiz = inserir(raiz, informacao[index]);
     }
-
-    printf("Percurso na Arvore PRE-ORDEM:\n");
-    Andar_na_Arvore_PREORDEM(raiz, 0);
-
-    printf("\nPercurso na Arvore IN-ORDEM:\n");
-    Andar_na_Arvore_INORDEM(raiz);
+    andar_na_arvore(raiz, 0);
 }
 
 // Função.
@@ -135,7 +128,6 @@ int comparar(struct Info a, struct Info b)
 // A função recebe dois parâmetros:
 // struct Node *raiz: Um ponteiro para o nó raiz da árvore ou subárvore.
 // struct Info info: A estrutura Info contendo os dados que devem ser inseridos na árvore.
-// Função.
 struct Node *inserir(struct Node *raiz, struct Info info)
 {
     // se está vazia.
@@ -161,9 +153,7 @@ struct Node *inserir(struct Node *raiz, struct Info info)
     return raiz;
 }
 
-// Função - > Pré_Ordem.
-// struct Node *raiz, aponta para o nó atual da árvore. 
-void Andar_na_Arvore_PREORDEM(struct Node *raiz, int profundidade)
+void andar_na_arvore(struct Node *raiz, int profundidade)
 {
 
     if (raiz == NULL)
@@ -171,22 +161,6 @@ void Andar_na_Arvore_PREORDEM(struct Node *raiz, int profundidade)
         return;
     }
     printf("Nome: %s, Mat: %d, Turma: %d, Nota: %.2f\n", raiz->info.nome, raiz->info.mat, raiz->info.turma, raiz->info.nota);
-    // Recursão para a Subárvore com incremento da profundidade. 
-    Andar_na_Arvore_PREORDEM(raiz->dir, ++profundidade);
-    Andar_na_Arvore_PREORDEM(raiz->esq, ++profundidade);
+    andar_na_arvore(raiz->dir, ++profundidade);
+    andar_na_arvore(raiz->esq, ++profundidade);
 }
-
-
-// Função: in-Ordem
-// Subárvore esquerda, nó atual e subárvore direita.
-void Andar_na_Arvore_INORDEM(struct Node *raiz) {
-    if (raiz == NULL) {
-        return;
-    }
-    Andar_na_Arvore_INORDEM(raiz->esq);
-    printf("Nome: %s, Mat: %d, Turma: %d, Nota: %.2f\n", raiz->info.nome, raiz->info.mat, raiz->info.turma, raiz->info.nota);
-    Andar_na_Arvore_INORDEM(raiz->dir);
-}
-
-
-// Precisa Fazer Uma função: Pos-Ordem
