@@ -151,6 +151,25 @@ analisando o algoritmo para n tendendo a infinito;
 O(n) Limitador Estrito Superior.
 
 # Complexidades Tipagens:
+# Tabela:
+# Ordem de Complexidade
+
+| Notação | Descrição Simplificada    |
+|---------|---------------------------|
+| O(1)    | Complexidade Constante    |
+| O(log(n)) | Complexidade Logarítmica  |
+| O(n)    | Complexidade Linear       |
+| O(n log(n)) | Complexidade Log Linear   |
+| O(n^2)  | Complexidade Quadrática   |
+| O(n^3)  | Complexidade Cúbica       |
+| O(2^n)  | Complexidade Exponencial  |
+| O(n!)   | Complexidade Fatorial     |
+
+
+
+
+
+
 
 ### 1. O(1) - Complexidade Constante
 **Descrição:** 
@@ -384,3 +403,20 @@ pior cenario possível.
 algoritmos.
 • A complexidade do caso medio não e a média entre o pior caso e o 
 melhor caso.
+
+
+# Tabela:
+# Complexidades
+
+| Algoritmo        | Pior Caso     | Caso Médio    | Melhor Caso   |
+|------------------|---------------|---------------|---------------|
+| **Bubble Sort**  | O(n^2)        | O(n^2)        | O(n)          |
+| **Insertion Sort**| O(n^2)        | O(n^2)        | O(n)          |
+| **Selection Sort**| O(n^2)        | O(n^2)        | O(n^2)        |
+| **Merge Sort**   | O(n log n)    | O(n log n)    | O(n log n)    |
+| **Heap Sort**    | O(n log n)    | O(n log n)    | O(n log n)    |
+| **Quick Sort**   | O(n^2)        | O(n log n)    | O(n log n)    |
+| **Tree Sort**    | O(n^2)        | O(n log n)    | O(n log n)    |
+| **Counting Sort**| O(n + k)      | O(n + k)      | O(n + k)      |
+| **Bucket Sort**  | O(n^2)        | O(n^2)        | O(n + k)      |
+| **Radix Sort**   | O(nk)         | O(nk)         | O(nk)         |
