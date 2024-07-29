@@ -81,7 +81,7 @@ Uma árvore binária é cheia se cada nó tem exatamente 0 ou 2 filhos. Nenhum n
 ```
 ### 3. Árvores Estritamente Binárias
 
-Uma árvore estritamente binária é um tipo específico de árvore binária onde cada nó interno tem exatamente dois filhos. Isso implica que todos os nós internos têm exatamente dois filhos, e as folhas (nós sem filhos) não têm filhos. 
+Uma árvore estritamente binária é um tipo específico de árvore binária onde cada nó interno tem exatamente dois filhos. Isso implica que todos os nós internos têm exatamente dois filhos  ou (nós sem filhos) não têm filhos. 
 ```
         1
        / \
@@ -170,3 +170,150 @@ Valor:  1, 2, 3, 4, 5, 6, 7
 - Ponteiro para o nó da esquerda;
 - Ponteiro para o nó da direita.
 - A árvore é apenas um ponteiro para o nó raiz.
+
+## Relebrando:
+```
+        1<->Raiz
+       / \
+      2   3<->Nó/Não termanais
+     /|   |\
+    4 5   6 7<->folhaas/Nos terminais
+   / \
+  8   9<->folhaas/ Nos terminais 
+
+```
+```
+                       1
+                      / \
+ Filho Esquerdo  <-> 2   3 <->Filho Direito
+                    / \ / \
+                   4  5 6  7
+```
+
+```
+           1
+     /<-> S-Esq \ <->SubDir
+    2            3
+   / \          / \
+  4  5          6  7
+```
+
+```
+      1  <-> Nivel 0
+     / \
+    2   3 <-> Nivel 1
+   / \ / \
+  4  5 6  7 <-> Nivel 2
+```
+- Altura 3.
+-  Uma árvore Binária é o conjunto vazio.
+- Um nó conectado a duas árvores binárias.
+
+# Percorrendo os nós PRÉ-ORDEM.
+
+- A travessia pré-ordem de uma árvore binária visita os nós na seguinte ordem: 
+
+1. **Visita o nó atual** = primeiro visita (processa) a raiz.
+2. **Percorre a subárvore esquerda**.
+3. **Percorre a subárvore direita**.
+
+### Explicação da Travessia Pré-Ordem
+
+1. **Visite o nó atual**: Comece no nó raiz e o visite (processando seu valor).
+2. **Percorra a subárvore esquerda**: Passe para o filho à esquerda e repita o processo de visita.
+3. **Percorra a subárvore direita**: Após completar a travessia da subárvore esquerda, passe para o filho à direita e repita o processo de visita.
+
+### Exemplo
+```
+         2
+       /   \
+      5     7
+     / \   /  \ 
+    3   8  1   6
+       /   \ 
+       4    9
+```
+
+A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
+
+
+# PÓS-ORDEM. 
+- A travessia pós-ordem de uma árvore binária visita os nós na seguinte ordem:
+
+1. **Percorre a subárvore esquerda**.
+2. **Percorre a subárvore direita**.
+3. **Visita o nó atual**.
+
+## Exemplo de Árvore
+
+```
+         2
+       /   \
+      5     7
+     / \   /  \ 
+    3   8  1   6
+       /   \ 
+       4    9
+```
+- Ordem: **3, 4, 8, 5, 9, 1, 6, 7, 2**
+
+# IN-ORDEM
+Claro! A travessia em ordem (ou **in-order**) de uma árvore binária visita os nós na seguinte ordem:
+
+1. **Percorre a subárvore esquerda**.
+2. **Visita o nó atual**.
+3. **Percorre a subárvore direita**.
+
+
+
+## Exemplo de Árvore
+
+```
+         2
+       /   \
+      5     7
+     / \   /  \ 
+    3   8  1   6
+       /   \ 
+       4    9
+```
+- Ordem:**3, 5, 4, 8, 9, 2, 9, 1, 7, 6**
+
+## Contéudo menos importante:
+#### Notações Aritméticas e Árvores Binárias
+## Notação Pré-Fixa (Prefixa)
+## Notação Pós-Fixa (Suffixa)
+## Notação Infixa
+
+## Como Funciona a Travessia em Largura:
+- A travessia em largura (ou **traversal em nível**) é uma forma de percorrer todos os nós de uma árvore binária nivel por nível, da esquerda para a direita. 
+1. **Comece pela raiz**: Coloque o nó raiz em uma fila.
+2. **Visita os nós por níveis**.
+3. **Da Esquerda para a Direita**.
+# Travessia em Largura:
+- A travessia em largura percorre a árvore nivel por nível, da esquerda para a direita.
+
+
+```
+         2
+       /   \
+      5     7
+     / \   /  \ 
+    3   8  1   6
+       /   \ 
+       4    9
+```
+- Ordem: **2, 5, 7, 3, 8, 1, 6, 4, 9**
+         49 
+        /  \
+      44    50
+     /       \
+    12        54
+      \       / \
+      30    51  61
+       \           \
+       42         68
+      /          /  \
+     33        59  87
+    /           / 
+   27           41
