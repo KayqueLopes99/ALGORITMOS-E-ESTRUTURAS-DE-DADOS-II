@@ -59,24 +59,24 @@
 
 - Uma árvore binária é considerada completa se todos os níveis, exceto possivelmente o último, estão totalmente preenchidos, e todos os nós estão o mais à esquerda possível.
 ```
-      1
-     / \
-    2   3
-   / \ / \
-  4  5 6  7
+        1
+       / \
+      2   3
+     /|   |\
+    4 5   6 7
+   / \    /
+  8   9  5.5
 
 ```
 ### 2. Árvore Binária Cheia
 
 Uma árvore binária é cheia se cada nó tem exatamente 0 ou 2 filhos. Nenhum nó tem apenas um filho.
 ```
-        1
-       / \
-      2   3
-     /|   |\
-    4 5   6 7
-   / \
-  8   9
+      1
+     / \
+    2   3
+   / \ / \
+  4  5 6  7
 
 ```
 ### 3. Árvores Estritamente Binárias
@@ -92,6 +92,11 @@ Uma árvore estritamente binária é um tipo específico de árvore binária ond
         8   9
 
 ```
+
+# Árvore estritamente binária: Cada nó possui exatamente 0 ou 2 filhos.
+# Árvore binária completa: Nós com menos de 2 filhos ficam no úlimo ou no penúltimo nível da árvore.
+# Árvore binária cheia: Nós com menos de 2 filhos ficam no último nível da árvore.
+
 ## O processo de busca de dados em árvores
 • Feito a partir da raiz na direção de alguma de suas folhas;
 • Busca ágil: Árvore com a menor altura possível são desejáveis;
