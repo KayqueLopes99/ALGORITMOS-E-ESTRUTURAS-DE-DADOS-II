@@ -263,8 +263,8 @@ A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
 - Ordem: **3, 4, 8, 5, 9, 1, 6, 7, 2**
 
 # IN-ORDEM
-Claro! A travessia em ordem (ou **in-order**) de uma árvore binária visita os nós na seguinte ordem:
-
+- A travessia em ordem (ou **in-order**) de uma árvore binária visita os nós na seguinte ordem:
+- Ele deixa em Ordem crescente os números se os numeros antecessores a raiz estiverem a esquerda e o sucessores a direita.
 1. **Percorre a subárvore esquerda**.
 2. **Visita o nó atual**.
 3. **Percorre a subárvore direita**.
