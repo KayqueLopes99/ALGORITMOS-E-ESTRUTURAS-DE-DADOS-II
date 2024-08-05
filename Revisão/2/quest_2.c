@@ -1,5 +1,4 @@
 #include <stdio.h>
-// Ano Bissexto - Questão 07.
 
 int funcp(int);
 int funcaux(int, int);
