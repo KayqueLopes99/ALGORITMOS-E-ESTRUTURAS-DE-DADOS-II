@@ -69,14 +69,15 @@
 
 ```
 ### 2. Árvore Binária Cheia
+- É completa e estritamente.
+- Uma árvore binária é cheia se cada nó tem exatamente 0 ou 2 filhos. Nenhum nó tem apenas um filho.
 
-Uma árvore binária é cheia se cada nó tem exatamente 0 ou 2 filhos. Nenhum nó tem apenas um filho.
 ```
       1
      / \
     2   3
-   / \ / \
-  4  5 6  7
+   / \ / 
+  4  5 6  
 
 ```
 ### 3. Árvores Estritamente Binárias
@@ -214,7 +215,7 @@ Valor:  1, 2, 3, 4, 5, 6, 7
 -  Uma árvore Binária é o conjunto vazio.
 - Um nó conectado a duas árvores binárias.
 
-# Percorrendo os nós PRÉ-ORDEM.
+# PRÉ-ORDEM: Pontos a Direita.
 
 - A travessia pré-ordem de uma árvore binária visita os nós na seguinte ordem: 
 
@@ -242,7 +243,7 @@ Valor:  1, 2, 3, 4, 5, 6, 7
 A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
 
 
-# PÓS-ORDEM. 
+# PÓS-ORDEM: Pontihos a esquerda.
 - A travessia pós-ordem de uma árvore binária visita os nós na seguinte ordem:
 
 1. **Percorre a subárvore esquerda**.
@@ -262,7 +263,7 @@ A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
 ```
 - Ordem: **3, 4, 8, 5, 9, 1, 6, 7, 2**
 
-# IN-ORDEM
+# IN-ORDEM: Pontos embaixo.
 - A travessia em ordem (ou **in-order**) de uma árvore binária visita os nós na seguinte ordem:
 - Ele deixa em Ordem crescente os números se os numeros antecessores a raiz estiverem a esquerda e o sucessores a direita.
 1. **Percorre a subárvore esquerda**.
@@ -309,16 +310,3 @@ A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
        4    9
 ```
 - Ordem: **2, 5, 7, 3, 8, 1, 6, 4, 9**
-         49 
-        /  \
-      44    50
-     /       \
-    12        54
-      \       / \
-      30    51  61
-       \           \
-       42         68
-      /          /  \
-     33        59  87
-    /           / 
-   27           41
