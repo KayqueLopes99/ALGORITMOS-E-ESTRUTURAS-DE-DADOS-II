@@ -310,3 +310,49 @@ A travessia pré-ordem seria: **2,5,3,8,4,7,1,9,6**
        4    9
 ```
 - Ordem: **2, 5, 7, 3, 8, 1, 6, 4, 9**
+
+## Remoção: 
+- Imagem com explicação.
+# Remoção em Árvore Binária de Busca
+
+A remoção de um nó em uma árvore binária de busca (ABB) pode ser dividida em três casos, dependendo do número de filhos que o nó a ser removido possui.
+
+## Caso 1: Nó sem filhos (folha)
+Se o nó a ser removido não tem filhos (é uma folha), basta removê-lo da árvore. Isso pode ser feito ajustando o ponteiro do pai do nó para `NULL`.
+
+Exemplo:
+- Árvore antes da remoção:  
+  ```
+      50
+     /  \
+    30   70
+  ```
+- Remover o nó `30`:
+  ```
+      50
+        \
+         70
+  ```
+
+## Caso 2: Nó com um único filho
+Se o nó a ser removido tem um único filho, ele pode ser removido e o filho desse nó ocupará o lugar dele. Isso pode ser feito ajustando o ponteiro do pai do nó para apontar diretamente para o filho.
+
+Exemplo:
+- Árvore antes da remoção:
+  ```
+      50
+     /  \
+    30   70
+      \
+       40
+  ```
+- Remover o nó `30`:
+  ```
+      50
+     /  \
+    40   70
+  ```
+
+## Caso 3: Nó com dois filhos
+Se o nó a ser removido tem dois filhos, o processo é um pouco mais complexo. O nó a ser removido deve ser substituído pelo **sucessor in-order** (o menor valor na subárvore direita) ou pelo **predecessor in-order** (o maior valor na subárvore esquerda). O sucessor/predecessor será removido e ocupará o lugar do nó a ser removido.
+
