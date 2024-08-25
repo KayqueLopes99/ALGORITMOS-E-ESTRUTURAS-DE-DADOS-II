@@ -1,30 +1,54 @@
+// Comandos GDB:
+// b inserir
+// b 102 ou main.
+// run
+// p *raiz
+// p*raiz ->dir
+// p*raiz ->esq
+// p *raiz->dir->dir...
 #include <stdio.h>
 #include <stdlib.h>
 
+// Estrutura Nó.
 typedef struct No {
-  int chave;
+  int chave; // Informação a ser inserida.
+  // Dois Ponteiros para as subárvore.
   struct No *esq;
   struct No *dir;
-  int altura;
+  int altura; // Pra a Altura.
 } No;
 
+// Retorna a altura de um nó ou -1 caso ele seka null.
 int altura(No *n) {
   if (n == NULL)
     return 0;
   return n->altura;
 }
-
+/*
+Retorna o maior dentre dois valores a,b ->altura de dois nós da árvore.
+*/
+// Recebe o parâmetro de duas subárvores.
+ // Se a for maior b retorna a A se não retorna a B.
 int maximo(int a, int b) { return (a > b) ? a : b; }
 
+/*
+Função que cria um novo nó.
+chave -> valor a ser inserido no nó.
+Retorna: o endereço do nó criado.
+*/
+// Recebe o elemento a ser inserido.
 No *novoNo(int chave) {
+  // Aloco memória para o novo nó
   No *no = (No *)malloc(sizeof(No));
-  no->chave = chave;
+  no->chave = chave; // coloca o elemento.
   no->esq = NULL;
   no->dir = NULL;
-  no->altura = 1;
-  return (no);
+  no->altura = 1; // altura do nó folha.
+  return (no); // Retorno do Ponteiro para o Nó Criado.
 }
 
+
+// função para a Rotação à Direita.
 No *rotacaodir(No *y) {
   No *x = y->esq;
   No *aux = x->dir;
@@ -38,6 +62,8 @@ No *rotacaodir(No *y) {
   return x;
 }
 
+// função para a rotação à esquerda.
+// Ponteiro para o nó desbalanceado. 
 No *rotacaoesq(No *x) {
   No *y = x->dir;
   No *aux = y->esq;
@@ -51,12 +77,15 @@ No *rotacaoesq(No *x) {
   return y;
 }
 
+// Calcula e retorna o fator de balanceamento de um nó.
 int obterBalanceamento(No *n) {
-  if (n == NULL)
+  if (n == NULL) // se tá vazio.
     return 0;
+  // FB = HESQUERDA- HDIREIRA.
+  // Retornando o resultado.
   return altura(n->esq) - altura(n->dir);
 }
-
+// Função de inserir balanceado
 No *inserir(No *no, int chave) {
   if (no == NULL)
     return (novoNo(chave));

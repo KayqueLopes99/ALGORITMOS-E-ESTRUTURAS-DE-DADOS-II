@@ -41,3 +41,7 @@ int main() {
 ```
 String copiada: Hello
 ```
+
+## ? Ternário: Estrutura.
+- o operador ternário é utilizado para tomar uma decisão de forma concisa.
+- condição ? valor_se_verdadeiro : valor_se_falso;
