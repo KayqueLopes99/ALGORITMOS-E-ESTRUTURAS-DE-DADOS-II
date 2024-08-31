@@ -99,16 +99,16 @@ Após a rotação:
 
 ```
 Antes da rotação:
-       y
-      /
-     x
+     y
       \
-       z
+       x
+      /
+     z
 
 Após a rotação:
       z
      / \
-    x   y
+    y   x
 ```
 
 ### 4. **Rotação Dupla à Esquerda (Esquerda-Direita) - (LR)**
@@ -120,16 +120,16 @@ Após a rotação:
 
 ```
 Antes da rotação:
-     y
-      \
-       x
+       y
       /
-     z
+     x
+      \
+       z
 
 Após a rotação:
       z
      / \
-    y   x
+    x   y
 ```
 
 ### Resumo:
