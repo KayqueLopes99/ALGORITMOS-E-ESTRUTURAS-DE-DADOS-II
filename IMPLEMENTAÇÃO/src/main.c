@@ -75,7 +75,7 @@ int main()
             break;
 
         case 0:
-            printf("\033[1;34mSaindo do sistema. Ate mais\033[0m\n");
+            printf("\033[1;34mSaindo do sistema. Volte sempre!\033[0m\n");
 
             break;
         default:

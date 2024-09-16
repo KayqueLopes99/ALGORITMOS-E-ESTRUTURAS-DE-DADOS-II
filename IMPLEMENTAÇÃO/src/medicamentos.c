@@ -4,7 +4,7 @@ struct info
 {
     char nome[100];
     float preco;
-    int estoque;
+    int estoque; 
 };
 
 struct medicamento
@@ -24,9 +24,9 @@ int max(int a, int b)
     return (a > b) ? a : b;
 }
 
-/*A primeira linha da função verifica se o ponteiro node é NULL. Isso é importante porque em uma árvore, um ponteiro NULL pode representar uma ausência de nó, como em um filho de uma folha ou um nó inexistente.
+/*A primeira linha da funcão verifica se o ponteiro node é NULL. Isso é importante porque em uma árvore, um ponteiro NULL pode representar uma ausência de nó, como em um filho de uma folha ou um nó inexistente.
 
-Se o nó não é NULL, a função retorna o valor armazenado no campo altura do nó. Este campo representa a altura do nó na árvore. */
+Se o nó não é NULL, a funcão retorna o valor armazenado no campo altura do nó. Este campo representa a altura do nó na árvore. */
 int altura(Medicamento *node)
 {
     if (node == NULL)
@@ -46,8 +46,8 @@ int fatorBalanco(Medicamento *node)
 // Ponteiro para o nó raiz da subárvore que precisa ser rotacionada com  fb positivo.
 Medicamento *rotacaoDir(Medicamento *root)
 {
-    // t1 é o filho esquerdo de root. Esse nó se tornará a nova raiz após a rotação.
-    // t2 é o filho direito de t1. Esse nó se tornará o novo filho esquerdo de root após a rotação.
+    // t1 é o filho esquerdo de root. Esse nó se tornará a nova raiz após a rotacão.
+    // t2 é o filho direito de t1. Esse nó se tornará o novo filho esquerdo de root após a rotacão.
     Medicamento *t1 = root->esq;
     Medicamento *t2 = t1->dir;
     /*t1->dir = root: O nó t1 (novo raiz) passa a ter o nó root como seu filho direito.
@@ -56,14 +56,14 @@ Medicamento *rotacaoDir(Medicamento *root)
     t1->dir = root;
     root->esq = t2;
     /*
-    root->esq: Após a rotação, o filho esquerdo de root pode ter mudado, e o nó root agora pode ter uma nova subárvore esquerda.
+    root->esq: Após a rotacão, o filho esquerdo de root pode ter mudado, e o nó root agora pode ter uma nova subárvore esquerda.
     root->dir: A subárvore direita de root pode ter sido movida para t1->dir. Portanto, sua altura pode ser recalculada corretamente com o valor da altura atual.
     */
     // +1 : Inclui o Próprio Nó.
     root->altura = 1 + max(altura(root->esq), altura(root->dir));
 
-    // t1->esq: A subárvore esquerda de t1 antes da rotação pode ser qualquer coisa, e depois da rotação, pode ter mudado.
-    // t1->dir: O filho direito de t1 (que agora é root) pode precisar de atualização.
+    // t1->esq: A subárvore esquerda de t1 antes da rotacão pode ser qualquer coisa, e depois da rotacão, pode ter mudado.
+    // t1->dir: O filho direito de t1 (que agora é root) pode precisar de atualizacão.
 
     t1->altura = 1 + max(altura(t1->esq), altura(t1->dir));
 
@@ -75,7 +75,7 @@ Medicamento *rotacaoEsq(Medicamento *root)
     // Medicamento *root: Ponteiro para o nó que precisa de reequilíbrio, fb negativo.
 
     /*
-    t1 é o filho direito de root, que se tornará a nova raiz após a rotação.
+    t1 é o filho direito de root, que se tornará a nova raiz após a rotacão.
 t2 é o filho esquerdo de t1, que será movido para a nova subárvore direita de root.
     */
     Medicamento *t1 = root->dir;
@@ -102,7 +102,7 @@ root->dir = t2: O nó root passa a ter t2 como seu novo filho direito.
     return t1;
 }
 
-// Medicamento *root: Um ponteiro para o nó, que é a posição onde o novo nó será criado.
+// Medicamento *root: Um ponteiro para o nó, que é a posicão onde o novo nó será criado.
 Medicamento *criaNo(Medicamento *root, char *nome, float preco, int estoque)
 {
     // Aloca memória para um novo nó da estrutura Medicamento.
@@ -111,7 +111,7 @@ Medicamento *criaNo(Medicamento *root, char *nome, float preco, int estoque)
     strcpy(root->info.nome, nome);
     /*
     strcpy é usado para copiar o nome do medicamento para o campo nome do novo nó.
-O preço e o estoque são diretamente atribuídos aos campos preco e estoque do novo nó.
+O preco e o estoque são diretamente atribuídos aos campos preco e estoque do novo nó.
     */
     root->info.preco = preco;
     root->info.estoque = estoque;
@@ -126,7 +126,7 @@ root->dir = NULL e root->esq = NULL: Inicializa os ponteiros para os filhos dire
     return root; // retorna o ponteiro para o no criado.
 }
 
-//  Ela também é responsável por manter a árvore balanceada após a inserção, aplicando rotações quando necessário para manter as propriedades da árvore AVL.
+//  Ela também é responsável por manter a árvore balanceada após a insercão, aplicando rotacões quando necessário para manter as propriedades da árvore AVL.
 // Medicamento *root Este é um ponteiro para um nó da árvore AVL. Ele representa a raiz da subárvore na qual o novo medicamento será inserido.
 Medicamento *insereNo(Medicamento *root, char *nome, float preco, int estoque)
 {
@@ -145,9 +145,9 @@ Quando root é NULL, significa que encontramos o local apropriado na árvore par
     }
     /*
     Compara o nome do medicamento com o nome no nó atual (root->info.nome):
-    Se o nome for menor, a inserção é feita na subárvore esquerda (root->esq).
-    Se o nome for maior, a inserção é feita na subárvore direita (root->dir).
-    Se o nome for igual, o produto já está cadastrado e não há inserção.
+    Se o nome for menor, a insercão é feita na subárvore esquerda (root->esq).
+    Se o nome for maior, a insercão é feita na subárvore direita (root->dir).
+    Se o nome for igual, o produto já está cadastrado e não há insercão.
     Vai colocando em ordem alfabetica comparando os nomes
     */
 
@@ -157,9 +157,9 @@ Quando root é NULL, significa que encontramos o local apropriado na árvore par
         Recursão à Esquerda:
 
 Se strcmp(nome, root->info.nome) < 0, isso significa que o nome do novo medicamento é menor do que o nome do medicamento no nó atual (root->info.nome).
-Nesse caso, a função recursivamente chama insereNo para a subárvore esquerda (root->esq).
+Nesse caso, a funcão recursivamente chama insereNo para a subárvore esquerda (root->esq).
 
-A função insereNo continua sendo chamada recursivamente até encontrar um NULL na subárvore esquerda onde o novo nó deve ser inserido.
+A funcão insereNo continua sendo chamada recursivamente até encontrar um NULL na subárvore esquerda onde o novo nó deve ser inserido.
 
         */
         root->esq = insereNo(root->esq, nome, preco, estoque);
@@ -170,15 +170,15 @@ A função insereNo continua sendo chamada recursivamente até encontrar um NULL
         Recursão à Direita:
 
 Se strcmp(nome, root->info.nome) > 0, isso significa que o nome do novo medicamento é maior do que o nome do medicamento no nó atual (root->info.nome).
-Nesse caso, a função recursivamente chama insereNo para a subárvore direita (root->dir). Isso é feito com o seguinte
+Nesse caso, a funcão recursivamente chama insereNo para a subárvore direita (root->dir). Isso é feito com o seguinte
 
-A função insereNo continua sendo chamada recursivamente até encontrar um NULL na subárvore direita onde o novo nó deve ser inserido.
+A funcão insereNo continua sendo chamada recursivamente até encontrar um NULL na subárvore direita onde o novo nó deve ser inserido.
         */
         root->dir = insereNo(root->dir, nome, preco, estoque);
     }
     else
     {
-        // Se o nome for igual, o produto já está cadastrado e não há inserção.
+        // Se o nome for igual, o produto já está cadastrado e não há insercão.
         printf("produto ja cadastrado");
         return root;
     }
@@ -189,7 +189,7 @@ A função insereNo continua sendo chamada recursivamente até encontrar um NULL
     /*
     fb > 1: O nó está desbalanceado para a esquerda (a subárvore esquerda é mais alta).
 strcmp(nome, root->esq->info.nome) < 0: O nome do novo medicamento é menor que o nome no nó da subárvore esquerda.
-Descrição: Isso indica um caso de desbalanceamento "à esquerda-esquerda". A árvore está desbalanceada porque há uma inserção na subárvore esquerda da subárvore esquerda. Para corrigir isso, uma rotação à direita (rotacaoDir) é necessária.
+Descricão: Isso indica um caso de desbalanceamento "à esquerda-esquerda". A árvore está desbalanceada porque há uma insercão na subárvore esquerda da subárvore esquerda. Para corrigir isso, uma rotacão à direita (rotacaoDir) é necessária.
     */
     if (fb > 1 && strcmp(nome, root->esq->info.nome) < 0)
     {
@@ -202,7 +202,7 @@ Descrição: Isso indica um caso de desbalanceamento "à esquerda-esquerda". A �
         /*
         fb < -1: O nó está desbalanceado para a direita (a subárvore direita é mais alta).
 strcmp(nome, root->dir->info.nome) > 0: O nome do novo medicamento é maior que o nome no nó da subárvore direita.
-Descrição: Isso indica um caso de desbalanceamento "à direita-direita". A árvore está desbalanceada porque há uma inserção na subárvore direita da subárvore direita. Para corrigir isso, uma rotação à esquerda (rotacaoEsq) é necessária.
+Descricão: Isso indica um caso de desbalanceamento "à direita-direita". A árvore está desbalanceada porque há uma insercão na subárvore direita da subárvore direita. Para corrigir isso, uma rotacão à esquerda (rotacaoEsq) é necessária.
         */
         return rotacaoEsq(root);
     }
@@ -212,7 +212,7 @@ Descrição: Isso indica um caso de desbalanceamento "à direita-direita". A ár
         /*
         fb > 1: O nó está desbalanceado para a esquerda.
 strcmp(nome, root->esq->info.nome) > 0: O nome do novo medicamento é maior que o nome no nó da subárvore esquerda.
-Descrição: Isso indica um caso de desbalanceamento "à esquerda-direita". A árvore está desbalanceada porque houve uma inserção na subárvore direita da subárvore esquerda. Primeiro, uma rotação à esquerda na subárvore esquerda (rotacaoEsq) é feita, seguida por uma rotação à direita (rotacaoDir) na raiz do subárvore afetada.
+Descricão: Isso indica um caso de desbalanceamento "à esquerda-direita". A árvore está desbalanceada porque houve uma insercão na subárvore direita da subárvore esquerda. Primeiro, uma rotacão à esquerda na subárvore esquerda (rotacaoEsq) é feita, seguida por uma rotacão à direita (rotacaoDir) na raiz do subárvore afetada.
         */
         root->esq = rotacaoEsq(root->esq);
         return rotacaoDir(root);
@@ -223,12 +223,12 @@ Descrição: Isso indica um caso de desbalanceamento "à esquerda-direita". A á
         /*
         fb < -1: O nó está desbalanceado para a direita.
 strcmp(nome, root->dir->info.nome) < 0: O nome do novo medicamento é menor que o nome no nó da subárvore direita.
-Descrição: Isso indica um caso de desbalanceamento "à direita-esquerda". A árvore está desbalanceada porque houve uma inserção na subárvore esquerda da subárvore direita. Primeiro, uma rotação à direita na subárvore direita (rotacaoDir) é feita, seguida por uma rotação à esquerda (rotacaoEsq) na raiz do subárvore afetada.
+Descricão: Isso indica um caso de desbalanceamento "à direita-esquerda". A árvore está desbalanceada porque houve uma insercão na subárvore esquerda da subárvore direita. Primeiro, uma rotacão à direita na subárvore direita (rotacaoDir) é feita, seguida por uma rotacão à esquerda (rotacaoEsq) na raiz do subárvore afetada.
         */
         root->dir = rotacaoDir(root->dir);
         return rotacaoEsq(root);
     }
-    // Após a inserção e possíveis rotações, retorna o ponteiro para a raiz da subárvore.
+    // Após a insercão e possíveis rotacões, retorna o ponteiro para a raiz da subárvore.
     return root;
 }
 
@@ -244,7 +244,7 @@ Medicamento *cadastroMedicamento(Medicamento *root, char *nome, float preco, int
         printf("Erro ao abrir o arquivo\n");
         return root;
     }
-    // Escrever as informações do medicamento no arquivo.
+    // Escrever as informacões do medicamento no arquivo.
     fprintf(data, "%s\t%.2f\t%d\n", nome, preco, estoque);
 
     fclose(data);
@@ -274,7 +274,7 @@ Medicamento *inicializarBaseDados(Medicamento *root)
         }
     }
 // Objetivo: Reposicionar o ponteiro de leitura do arquivo para o início e ler os dados de cada linha.
-//rewind(data) reinicializa o ponteiro de leitura do arquivo data para o começo do arquivo. Isso é necessário porque, após contar o número de linhas.
+//rewind(data) reinicializa o ponteiro de leitura do arquivo data para o comeco do arquivo. Isso é necessário porque, após contar o número de linhas.
     rewind(data);
     int i = 0;
     while (i < qtdMed)
@@ -299,6 +299,13 @@ Medicamento *inicializarBaseDados(Medicamento *root)
 
 
 
+
+
+
+
+
+// Funções colocadas. 
+
 int lerOpcao() {
     char opcao[10];
     int i;
@@ -317,7 +324,7 @@ int lerOpcao() {
     // Converte a string para inteiro
     int escolha = atoi(opcao);
     if (escolha < 0 || escolha > 6) {  // Ajuste o intervalo conforme o seu menu
-        printf("\033[1;31mOpcao invalida! Por favor, escolha uma opçao valida.\033[0m\n");
+        printf("\033[1;31mOpcao invalida! Por favor, escolha uma opcao valida.\033[0m\n");
         return -1; 
     }
 
@@ -332,14 +339,14 @@ int validaNome(char *nome)
     // Percorre cada caractere da string
     for (i = 0; nome[i]; i++)
     {
-        // Verifica se o caractere é alfabético ou um espaço
+        // Verifica se o caractere é alfabético ou um espaco
         if (!isalpha(nome[i]) && nome[i] != ' ')
         {
             printf("\033[1;31mO nome deve conter apenas letras.\033[0m\n"); 
             return 0; 
         }
 
-        // Se o caractere segue um espaço ou é o início da string, deve ser uma letra maiúscula
+        // Se o caractere segue um espaco ou é o início da string, deve ser uma letra maiúscula
         if (espacamento && !isupper(nome[i])) 
         {
             printf("\033[1;31mA primeira letra do nome deve ser maiuscula, tente novamente.\033[0m\n"); 
