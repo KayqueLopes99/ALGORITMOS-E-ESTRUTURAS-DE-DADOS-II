@@ -61,7 +61,7 @@ s1,s2, . . .sn;
 - Verificar cada valor. 
 -Exemplo-1:
 ```
-Indices:   1  2   3   4    5   6   7  8    9.
+Indices:   0   1  2   3   4    5   6   7  8.
 Valores: [33][32][28][31][29][26][25][30][27].
 
 Árvore: Aqui é uma Heap.
@@ -74,7 +74,7 @@ Valores: [33][32][28][31][29][26][25][30][27].
    30 27
 
 
-Indices:   1  2   3   4    5   6   7  8    9.
+Indices:   0   1   2   3   4    5   6   7  8.
 Valores: [33][32][28][31][26][29][25][30][27].
 Árvore: Aqui Não é uma Heap.
           33
@@ -149,12 +149,12 @@ diminuída precisa descer na
 ## Construção de Lista de Prioridades
 - Dado uma lista L de elementos para o qual se deseja construir uma
 - heap H, há três alternativas:
-* 1. Considerar uma heap vazia e inserir elemento a elemento;
-* 2. Considerar que a lista L já representa uma Heap, e corrigir as
+- 1.0 Considerar uma heap vazia e inserir elemento a elemento;
+- 2.0 Considerar que a lista L já representa uma Heap, e corrigir as
 prioridades:
-* 2.1 Considerar os nós folhas corretos;
-2.2 Corrigir os nós internos realizando descidas.
-* 3. Corrigir (subir) os nós a partir dos nós folhas. Incluindo processo de ordenação.
+- 2.1 Considerar os nós folhas corretos;
+- 2.2 Corrigir os nós internos realizando descidas.
+- 3.0 Corrigir (subir) os nós a partir dos nós folhas. Incluindo processo de ordenação.
 
 
 -Remova o elemento da Heap abaixo.

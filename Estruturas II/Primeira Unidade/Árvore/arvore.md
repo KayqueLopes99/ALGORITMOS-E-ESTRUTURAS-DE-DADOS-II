@@ -2,14 +2,13 @@
 ### Conceito:
 -  Uma árvore é uma estrutura de dados hierárquica composta por nós, onde cada nó pode ter zero ou mais filhos. As árvores são amplamente usadas para organizar dados de maneira eficiente para várias operações, como pesquisa, inserção e exclusão.
 - Uma árvore finita ( T ) com elementos chamados nós ou vértices. Esta árvore pode ser vazia, conter um valor e ter subárvores no mesmo formato de ( T ).
-
 - Exemplo:
 ````
-      10
+      10 < - Raiz 
      /  \
-    5    15
+    5    15 < - Nós
    / \   / \
-  3   7 13  17
+  3   7 13  17 < - Nós folhas
 
 ````
 
@@ -17,12 +16,12 @@
         a
       /  \
      c    b
-   / \  \  
-  d   f  e
+   / \     \  
+  d   f     e
  / \   \ 
  g  h   i
 ````
-- C tem os filhos D,E,F.
+- C tem os filhos D,F.
 - I tem o pai F.
 
 ## Árvores Ordenadas:

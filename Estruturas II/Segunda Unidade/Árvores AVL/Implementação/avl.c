@@ -36,6 +36,11 @@ No *NewNO(int x)
 
 /*
 Retorna o maior dentre dois valores a,b ->altura de dois nós da árvore.
+- Determinar a altura maior entre duas subárvores durante o cálculo da altura de um nó e é frequentemente empregada para garantir o balanceamento da árvore.
+
+
+
+
 */
 // Recebe o parâmetro de duas subárvores.
 // Estrutura
@@ -193,27 +198,92 @@ No *inserir(No *raiz, int x)
     return raiz;
 }
 
-// Função para Imprimir. 
+// Função para Imprimir.
 // Recebe a raiz da árvore e o nível.
 void imprimir(No *raiz, int nivel)
 {
     int i;
-    if (raiz)//enquanto não for vazio.
+    if (raiz) // enquanto não for vazio.
     {
-        imprimir(raiz->right, nivel + 1); // Ir a extrema direita. 
+        imprimir(raiz->right, nivel + 1); // Ir a extrema direita.
         // vai indo para direita sempre, ao encontra NULL, volta para ultima chamada recursiva anterior
         printf("\n\n");
         for (i = 0; i < nivel; i++)
             printf("\t"); // nivel 1 = 1 tabulação e etc.
 
         printf("%d", raiz->valor);
-        // Ir a extrema esquerda. 
+        // Ir a extrema esquerda.
         imprimir(raiz->left, nivel + 1);
     }
 }
 
-// Função remoção e rebalanceamento não é necessário.
-
+// Função remoção.
+// Retorna a um nó, com valor sendo o dado a ser removido.
+/* Remove um nó da árvore */
+No *remover(No *raiz, int chave)
+{
+    if (raiz == NULL)
+    {
+        printf("Valor nao encontrado!\n");
+        return NULL;
+    }
+    else
+    { // Procura o nó a remover.
+        if (raiz->valor == chave)
+        {
+            // Remove nós folhas (nós sem filhos).
+            if (raiz->left == NULL && raiz->right == NULL)
+            {
+                free(raiz);
+                printf("Elemento folha removido: %d !\n", chave);
+                return NULL;
+            }
+            else
+            {
+                // Remove nós que possuem 2 filhos.
+                if (raiz->left != NULL && raiz->right != NULL)
+                {
+                    // precisamos salvalos.
+                    // o elemento a remover é trocado com um dos filhos, tornado um filho ou folha.
+                    No *aux = raiz->left;
+                    while (aux->right != NULL)
+                    {
+                        aux = aux->right;
+                    }
+                    raiz->valor = aux->valor;
+                    aux->valor = chave;
+                    printf("Elemento trocado: %d !\n", chave);
+                    raiz->left = remover(raiz->left, chave);
+                }
+                else
+                {
+                    // Remove nós que possuem apenas 1 filho.
+                    // salvar o filho a direita ou a esquerda.
+                    No *aux = (raiz->left != NULL) ? raiz->left : raiz->right; //
+                    free(raiz);
+                    printf("Elemento com 1 filho removido: %d !\n", chave);
+                    return aux;
+                }
+            }
+        }
+        else
+        { // recursividade
+            if (chave < raiz->valor)
+            {
+                raiz->left = remover(raiz->left, chave);
+            }
+            else
+            {
+                raiz->right = remover(raiz->right, chave);
+            }
+        }
+        // recalcular a altura de todos os nos entre a raiz e o nó inserido.
+        raiz->altura = maior(alturaDoNo(raiz->left), alturaDoNo(raiz->right)) + 1;
+        // verifica se a necessidade de balancear.
+        raiz = balancear(raiz);
+        return raiz;
+    }
+}
 
 // Main com o menu.
 int main()
@@ -222,12 +292,12 @@ int main()
     No *raiz = NULL; // Ponteiro inicial nulo.
     do
     {
-        printf("\n\n\to - Sair\n\t1 Inserir\n\t2 Imprimir\n\n");
+        printf("\n\n\to - Sair\n\t1 Inserir\n\t2 Imprimir\n\t3 Remover\n\n");
         scanf("%d", &opcao);
         switch (opcao)
         {
         case 0:
-            printf("Saindo!!!");
+            printf("Saindo!!!\n");
             break;
         case 1:
             printf("\tDigite o valor a ser inserido: ");
@@ -237,8 +307,13 @@ int main()
         case 2:
             imprimir(raiz, 1);
             break;
+        case 3:
+            printf("\tDigite o valor a ser removido: ");
+            scanf("%d", &valor);
+            raiz = remover(raiz, valor);
+            break;
         default:
-            printf("\n0cao invalida!!!\n");
+            printf("\nOpção inválida!!!\n");
         }
     } while (opcao != 0);
     return 0;

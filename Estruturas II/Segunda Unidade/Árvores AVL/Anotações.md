@@ -185,3 +185,12 @@ e C:
 - Após remover um nó, é necessário verificar e ajustar o balanceamento dos nós ancestrais.
 - Se o balanceamento for violado, uma ou mais rotações são aplicadas para restaurar a propriedade AVL.
 - Essas rotações garantem que as operações de inserção e remoção continuem sendo realizadas em tempo O(log n), mantendo a eficiência da estrutura.
+
+### Remoção de Elementos
+1. Procura-se o elemento na árvore.
+2. Quando o elemento é encontrado.
+a. Se ele não tem filhos, apenas o remova.
+b. Se ele tiver apenas um filho, substitua por esse filho. 0
+c. Se ele tiver dois filhos, o substitua pelo menor descendente do filho direito e remova esse mesmo descende da árvore.
+• As remoções são feitas recursivamente.
+• Ao final de cada remoção, o balanceamento dá árvore é verificado. Caso esteja desbalanceada a árvore é rebalanceada.
