@@ -323,7 +323,7 @@ int lerOpcao() {
 
     // Converte a string para inteiro
     int escolha = atoi(opcao);
-    if (escolha < 0 || escolha > 6) {  // Ajuste o intervalo conforme o seu menu
+    if (escolha < 0 || escolha > 10) {  // Ajuste o intervalo conforme o seu menu
         printf("\033[1;31mOpcao invalida! Por favor, escolha uma opcao valida.\033[0m\n");
         return -1; 
     }

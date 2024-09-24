@@ -14,13 +14,21 @@ int main()
     printf("---------------------------------------\n");
     do
     {
+        printf("---------------------------------------\n");
         printf("\033[1;34m---- Menu de opcoes ----\033[0m\n");
+        printf("---------------------------------------\n");
         printf("1 - Cadastrar cliente\n");
-        printf("2 - Cadastrar de medicamento\n");
-        printf("3 - Cadastro de receita\n");
-        printf("4 - Buscar cliente\n");
-        printf("5 - Buscar medicamento\n");
-        printf("6 - Imprimir informacoes do cliente\n");
+        printf("2 - Remover cliente\n");
+        printf("3 - Buscar cliente\n");
+        printf("4 - Imprimir informacoes do cliente\n");
+        printf("---------------------------------------\n");
+        printf("5 - Cadastrar de medicamento\n");
+        printf("6 - Buscar medicamento\n");
+        printf("7 - Imprimir medicamentos\n");
+        printf("---------------------------------------\n");
+        printf("8 - Cadastrar receita\n");
+        printf("9 - Buscar Receita\n");
+        printf("10 - Imprimir Receitas.\n");
         printf("0 - Sair\n");
         printf("---------------------------------------\n");
         op = lerOpcao();
@@ -36,7 +44,20 @@ int main()
         case 1:
 
             break;
+
         case 2:
+
+            break;
+
+        case 3:
+
+            break;
+
+        case 4:
+
+            break;
+
+        case 5:
 
             printf("Informe o nome do medicamento: ");
             scanf(" %[^\n]s", nome);
@@ -49,7 +70,6 @@ int main()
             scanf("%f", &preco);
 
             printf("Informe o estoque: ");
-            scanf("%d", &estoque);
             if ((scanf(" %d", &estoque)) != 1)
             {
                 printf("\033[1;31mPermitido apenas numeros.\033[0m\n");
@@ -61,16 +81,16 @@ int main()
             printf("Medicamento cadastrado com sucesso!\n");
 
             break;
-        case 3:
-
-            break;
-        case 4:
-
-            break;
-        case 5:
-
-            break;
         case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+
+            break;
+        case 9:
 
             break;
 

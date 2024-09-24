@@ -1,14 +1,15 @@
 # Árvore AVL:
-
 ## Introdução: 
 - A complexidade de busca em árvores binárias são dependentes da ordem que os elementos são inseridos ou removidos das estrutura de dados.
-
+- A árvore binária pode se tornar degenerada, requerendo um tempo maior para realizar operações na propria árvore se tornando lentos, se associando ainda a um vetor ou lista. 
 - Isto ocorre devido ao fato das árvores poderem se comportar no pior caso como filas.
-
 - Surge o conceito de árvores com alturas balanceadas, conhecidas como AVL.
 
 ## Definição:
+- É uma árvore binária de busca balanceada. 
 - Uma árvore é definida como sendo:
+- Balanceada O(log(N)) <Melhor caso>
+- Não balanceada O(N) <Pior caso>
 + Uma árvore vazia é uma árvore AVL;
 + Sendo T uma árvore binária de busca cujas sub-árvores esquerda e direita são L e R, respectivamente, T será uma AVL contando que:
 + L e R sejam AVL’s;

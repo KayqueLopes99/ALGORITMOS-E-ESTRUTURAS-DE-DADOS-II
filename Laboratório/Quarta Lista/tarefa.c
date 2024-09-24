@@ -80,12 +80,12 @@ int main() {
     int positions[1000];  // Supondo que no máximo 1000 ocorrências
 
     char *filename = "Pi.txt";
-    char *matricula = "3011415";
+    char *matricula = "23011415";
 
     // Abre o arquivo em modo leitura binária
     file = fopen(filename, "rb");
     if (!file) {
-        perror("Não foi possível abrir o arquivo");
+        printf("Não foi possível abrir o arquivo");
         return 1;
     }
 
@@ -97,7 +97,7 @@ int main() {
     // Aloca memória para o buffer
     buffer = (char *) malloc(sizeof(char) * (file_size + 1));
     if (!buffer) {
-        perror("Falha ao alocar memória");
+        printf("Falha ao alocar memória");
         fclose(file);
         return 1;
     }

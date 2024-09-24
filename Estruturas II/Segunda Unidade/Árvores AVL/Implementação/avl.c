@@ -43,7 +43,7 @@ Retorna o maior dentre dois valores a,b ->altura de dois nós da árvore.
 
 */
 // Recebe o parâmetro de duas subárvores.
-// Estrutura
+// a,b->altura d dois nós da árvore.
 int maior(int a, int b)
 {
     // Se a for maior b retorna a A se não retorna a B.
@@ -74,13 +74,16 @@ int fatorDeBalanceamento(No *no)
     }
     return 0; // Retorna 0 se no for NULL
 }
+
+
+
 // função para a rotação à esquerda.
 No *rotacaoEsquerda(No *r) // Ponteiro para o nó desbalanceado, com FB = NEGATIVO.
 {
     // Dois ponteiros auxiliares.
     No *y, *f;
     // Eles recebem:
-    y = r->right; // Para a raiz.
+    y = r->right; // Para a direita da raiz.
     f = y->left;  // Para o filho a esquerda.
 
     y->left = r;  // O ponteiro a esquerda vai apontar para a raiz.
@@ -94,13 +97,16 @@ No *rotacaoEsquerda(No *r) // Ponteiro para o nó desbalanceado, com FB = NEGATI
     return y; // Retorna a nova raiz.
 }
 
+
+
+
 // função para a Rotação à Direita.
 No *rotacaoDireita(No *r) // Ponteiro para o nó desbalanceado, com FB = POSITIVO.
 {
     // Dois ponteiros auxiliares.
     No *y, *f;
     // Eles recebem:
-    y = r->left;  // Para a raiz.
+    y = r->left;  // Para esquerda  da raiz.
     f = y->right; // Para o filho a Direita.
 
     y->right = r; // O ponteiro a Direita vai apontar para a raiz.
@@ -118,7 +124,7 @@ No *rotacaoDireita(No *r) // Ponteiro para o nó desbalanceado, com FB = POSITIV
 // Ponteiro para o nó desbalanceado.
 No *rotacaoDireitaEsquerda(No *r)
 {
-    // Recebe o retorno da rotação direita.
+    // Recebe o retorno da rotação direita na subs arvore direita.
     r->right = rotacaoDireita(r->right);
     // Retorna a rotação a esquerda.
     return rotacaoEsquerda(r);

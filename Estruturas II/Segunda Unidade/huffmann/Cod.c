@@ -36,8 +36,7 @@ void imprime_tabela_frenquencia(unsigned int tab[])
 {
     int i;
     printf("========= TABELA DE FREQUÊNCIA ========\n");
-    for (i = 0; i < TAM; i++)
-    {
+    for (i = 0; i < TAM; i++){
         // Indice, qauntidade, caractere na posição representado por esse número.
         // Condição so para imprimir os que tem.
         if (tab[i] > 0){

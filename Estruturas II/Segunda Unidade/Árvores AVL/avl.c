@@ -85,6 +85,7 @@ int obterBalanceamento(No *n) {
   // Retornando o resultado.
   return altura(n->esq) - altura(n->dir);
 }
+
 // Função de inserir balanceado
 No *inserir(No *no, int chave) {
   if (no == NULL)
