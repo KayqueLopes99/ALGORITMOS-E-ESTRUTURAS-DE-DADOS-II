@@ -1,8 +1,0 @@
-k	3.00	3
-dipirona	2.00	3
-Dipirona	2.50	5
-Ibuprofemo	2.56	9374828
-D	3.44	9374828
-Meta	22.00	5
-Ki	22.00	7
-L	23.00	8
