@@ -47,8 +47,8 @@ def main():
     graph, famous_names = load_graph(edge_file, data_file)
 
     # IDs a serem pesquisados
-    start_id = 415
-    goal_id = 416
+    start_id = 180
+    goal_id = 181
 
     steps = bfs(graph, start_id, goal_id)
 
