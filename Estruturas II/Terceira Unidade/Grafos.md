@@ -92,3 +92,22 @@ possui.
 ## Grafos Conexo 
 - Um grafo é conexo se existe um caminho entre qualquer par de vértices, caso contrário ele é chamado desconexo. 
 - Dois vértices estão conectados se existe um caminho entre eles no grafo.
+
+## Bipartido
+- No campo da matemática da teoria dos grafos, um grafo bipartido ou bigrafo é um grafo cujos vértices podem ser divididos em dois conjuntos disjuntos U e V tais que toda aresta conecta um vértice em U a um vértice em V;[1] ou seja, U e V são conjuntos independentes. Equivalentemente, um grafo bipartido é um grafo que não contém qualquer ciclo de comprimento ímpar.
+
+<img src="img/12.png" alt="Descrição da Imagem" width="250" height="auto">
+
+## Aplicação em Grafos biunívoca
+No contexto de grafos, o termo biunívoca aparece geralmente quando falamos de isomorfismo de grafos. Dois grafos são isomorfos quando existe uma correspondência biunívoca entre seus vértices e entre suas arestas, de forma que:
+
+Cada vértice de um grafo está associado a um vértice único no outro grafo.
+As conexões (arestas) entre vértices correspondentes também são preservadas.
+Em resumo:
+
+Biunívoca implica que existe uma relação um para um e única entre os elementos dos conjuntos (vértices ou arestas) dos dois grafos.
+
+
+
+
+
